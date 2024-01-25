@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import Calculator from "./pages/Dashboard/Calculator/Calculator";
 import Notepad from "./pages/Dashboard/Notepad/Notepad";
 import PageNotFound404 from "./pages/PageNotFound404";
+import TextEditor from "./pages/Dashboard/Notepad/TextEditor";
 
 
 function App() {
@@ -39,9 +40,10 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="Dashboard" element={<Dashboard />}/>
           <Route path="Dashboard/Notepad" element={<Notepad />}/>
+          <Route path="Dashboard/Notepad/TextEditor" element={<TextEditor />}/>
           <Route path="Dashboard/Calculator" element={<Calculator />}/>
         </Route>
-
+        
         <Route path="*" element={<PageNotFound404 />}/>
 
       </Routes>
