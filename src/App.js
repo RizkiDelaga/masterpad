@@ -9,6 +9,8 @@ import Calculator from "./pages/Dashboard/Calculator/Calculator";
 import Notepad from "./pages/Dashboard/Notepad/Notepad";
 import PageNotFound404 from "./pages/PageNotFound404";
 import TextEditor from "./pages/Dashboard/Notepad/TextEditor";
+import ThemeProviderComponent from "./provider/components/ThemeProviderComponent";
+import ThemeModeComponent from "./provider/components/ThemeModeComponent";
 
 
 function App() {
@@ -28,26 +30,31 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="" element={<Home />} />
-        <Route element={<HandleLoginSuccessfully />}>
-          <Route path="Login" element={<Login />}/>
-          <Route path="Register" element={<Register />}/>
-        </Route>
-        <Route path="LoginProcess" element={<LoginProcess />}/>
+    <ThemeModeComponent>
+      <ThemeProviderComponent>
+        <BrowserRouter>
+          <Routes>
+            <Route path="" element={<Home />} />
+            <Route element={<HandleLoginSuccessfully />}>
+              <Route path="Login" element={<Login />}/>
+              <Route path="Register" element={<Register />}/>
+            </Route>
+            <Route path="LoginProcess" element={<LoginProcess />}/>
 
-        <Route element={<ProtectedRoute />}>
-          <Route path="Dashboard" element={<Dashboard />}/>
-          <Route path="Dashboard/Notepad" element={<Notepad />}/>
-          <Route path="Dashboard/Notepad/TextEditor" element={<TextEditor />}/>
-          <Route path="Dashboard/Calculator" element={<Calculator />}/>
-        </Route>
-        
-        <Route path="*" element={<PageNotFound404 />}/>
+            <Route element={<ProtectedRoute />}>
+              <Route path="Dashboard" element={<Dashboard />}/>
+              <Route path="Dashboard/Notepad" element={<Notepad />}/>
+              <Route path="Dashboard/Notepad/TextEditor" element={<TextEditor />}/>
+              <Route path="Dashboard/Calculator" element={<Calculator />}/>
+            </Route>
+            
+            <Route path="*" element={<PageNotFound404 />}/>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProviderComponent>
+    </ThemeModeComponent>
 
-      </Routes>
-    </BrowserRouter>
+
   );
 }
 

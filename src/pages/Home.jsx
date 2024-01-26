@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Button, CssBaseline } from '@mui/material';
 import React from 'react';
 import { useNavigate } from 'react-router';
 
@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <>
       <Button
+        variant="outlined"
         onClick={() => {
           navigate('/Dashboard');
         }}
@@ -16,6 +17,7 @@ export default function Home() {
       </Button>
 
       <Button
+        variant="outlined"
         onClick={() => {
           navigate('/Login');
         }}
@@ -24,6 +26,7 @@ export default function Home() {
       </Button>
 
       <Button
+        variant="outlined"
         onClick={() => {
           navigate('/Register');
         }}
@@ -32,6 +35,7 @@ export default function Home() {
       </Button>
 
       <Button
+        variant="outlined"
         onClick={() => {
           localStorage.removeItem('accessToken');
         }}
