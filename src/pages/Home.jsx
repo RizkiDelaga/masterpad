@@ -17,21 +17,11 @@ export default function Home() {
       </Button>
 
       <Button
-        variant="outlined"
         onClick={() => {
-          navigate('/Login');
+          navigate('/SSOAuthentication');
         }}
       >
         Login
-      </Button>
-
-      <Button
-        variant="outlined"
-        onClick={() => {
-          navigate('/Register');
-        }}
-      >
-        Register
       </Button>
 
       <Button
