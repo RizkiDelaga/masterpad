@@ -17,8 +17,6 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import DefaultLayout from "./layouts/DefaultLayout";
 import SSOProcess from "./pages/Auth/SSOProcess";
 
-
-
 function App() {
 
   const HandleLoginSuccessfully = () => {
@@ -43,7 +41,7 @@ function App() {
             <Route element={<HandleLoginSuccessfully />}>
               <Route path="SSOAuthentication" element={<SSOAuthentication />}/>
             </Route>
-            
+
             <Route element={<DashboardLayout />}>
               <Route element={<ProtectedRoute />}>
                 <Route path="Dashboard" element={<Dashboard />}/>
