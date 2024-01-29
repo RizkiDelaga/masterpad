@@ -1,5 +1,17 @@
+body {
+    margin: 0;
+}
 
-/* Override Style React-Quill */
+/* ========= LINK ======== */
+
+a {
+    /* color: inherit !important; */
+    text-decoration: none !important;
+    cursor: pointer !important;
+}
+
+
+/* ========= OVERRIDE REACT-QUILL STYLE ======== */
 .quill .ql-toolbar {
     background: #fff;
     /* border-top-left-radius: 0.5em;

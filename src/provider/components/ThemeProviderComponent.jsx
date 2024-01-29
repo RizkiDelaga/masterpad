@@ -8,39 +8,38 @@ export default function ThemeProviderComponent({ children }) {
   const theme = createTheme({
     palette: {
       mode: themeMode,
+      primary: {
+        main: '#F05945',
+      },
+      secondary: {
+        main: '#5EAAA8',
+      },
+      alternative: {
+        main: '#A3D2CA',
+      },
+      light: {
+        main: '#FFFFFF',
+      },
+      dark: {
+        main: '#000000',
+      },
       ...(themeMode === 'light'
         ? {
-            // palette values for light mode
-            primary: {
-              main: '#F05945',
-            },
-            secondary: {
-              main: '#5EAAA8',
-            },
             background: {
               default: '#F7F3E9',
-              paper: '#A3D2CA',
+              paper: '#FFFFFF',
             },
             text: {
               primary: '#000000',
-              // secondary: '#000000',
             },
           }
         : {
-            // palette values for dark mode
-            primary: {
-              main: '#F05945',
-            },
-            secondary: {
-              main: '#66BFBF',
-            },
             background: {
               default: '#000000',
               paper: '#272727',
             },
             text: {
               primary: '#ffffff',
-              // secondary: '#eeeeee',
             },
           }),
     },
@@ -50,33 +49,40 @@ export default function ThemeProviderComponent({ children }) {
           root: { backgroundImage: 'none' },
         },
       },
+      MuiDialog: {
+        styleOverrides: {
+          paper: { backgroundImage: 'none' },
+        },
+      },
+      MuiDivider: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#F05945',
+            height: '1px',
+          },
+        },
+      },
       MuiButton: {
         styleOverrides: {
           root: {
             // Default styles
             borderWidth: '2px',
-            borderColor: 'theme.palette.primary.main',
             fontWeight: 'bold',
 
             // Hover styles
             '&:hover': {
               borderWidth: '2px',
-              borderColor: 'theme.palette.primary.main',
             },
 
             // Active styles
             '&:active': {
               borderWidth: '2px',
-              borderColor: 'theme.palette.primary.main',
             },
 
             // Focus styles
             '&:focus': {
               borderWidth: '2px',
-              borderColor: 'theme.palette.primary.main',
             },
-
-            // Add other styles as needed
           },
         },
       },
