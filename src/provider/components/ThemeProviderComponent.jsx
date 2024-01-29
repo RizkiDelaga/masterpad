@@ -58,7 +58,6 @@ export default function ThemeProviderComponent({ children }) {
         styleOverrides: {
           root: {
             backgroundColor: '#F05945',
-            height: '1px',
           },
         },
       },

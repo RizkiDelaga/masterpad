@@ -1,7 +1,6 @@
 import { BrowserRouter } from "react-router-dom";
 import { Navigate, Outlet, Route, Routes } from 'react-router';
 import Home from "./pages/Home";
-import LoginProcess from "./pages/Auth/LoginProcess";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Calculator from "./pages/Dashboard/Calculator/Calculator";
 import Notepad from "./pages/Dashboard/Notepad/Notepad";
@@ -16,6 +15,8 @@ import ActiveSubscription from "./pages/Dashboard/ActiveSubscription/ActiveSubsc
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import DashboardLayout from "./layouts/DashboardLayout";
 import DefaultLayout from "./layouts/DefaultLayout";
+import SSOProcess from "./pages/Auth/SSOProcess";
+
 
 
 function App() {
@@ -29,22 +30,9 @@ function App() {
 
   const ProtectedRoute = () => {
     if (!localStorage.getItem("accessToken")) {
-        return <Navigate to={"/Login"} />
+        return <Navigate to={"/SSOAuthentication"} />
     }
     return <Outlet/>;
-  }
-
-    
-  const SSOValidation = () => {
-    if (localStorage.getItem('accessToken')) {
-      // Validasi Token by API
-      if (true) {
-        // window.location.href =``
-        return null
-      } else {
-        return <Navigate to={`/SSOAuthentication?tokenStatus=expired`} />
-      }
-    }
   }
 
   return (
@@ -55,6 +43,7 @@ function App() {
             <Route element={<HandleLoginSuccessfully />}>
               <Route path="SSOAuthentication" element={<SSOAuthentication />}/>
             </Route>
+            
             <Route element={<DashboardLayout />}>
               <Route element={<ProtectedRoute />}>
                 <Route path="Dashboard" element={<Dashboard />}/>
@@ -73,13 +62,12 @@ function App() {
               <Route path="" element={<Home />} />
             </Route>
             
-            <Route path="LoginProcess" element={<LoginProcess />}/>
+            <Route path="SSOProcess" element={<SSOProcess />}/>
             <Route path="*" element={<PageNotFound />}/>
           </Routes>
         </BrowserRouter>
       </ThemeProviderComponent>
     </ThemeModeComponent>
-
 
   );
 }
