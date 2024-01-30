@@ -1,7 +1,6 @@
 import { Box, LinearProgress } from '@mui/material';
-import axios from 'axios';
 import React, { useEffect } from 'react';
-import { Navigate, useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 
 export default function SSOProcess() {
   const navigate = useNavigate();

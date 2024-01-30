@@ -16,6 +16,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import DashboardLayout from "./layouts/DashboardLayout";
 import DefaultLayout from "./layouts/DefaultLayout";
 import SSOProcess from "./pages/Auth/SSOProcess";
+import AlertComponent from "./provider/components/AlertComponent";
 
 function App() {
 
@@ -36,34 +37,36 @@ function App() {
   return (
     <ThemeModeComponent>
       <ThemeProviderComponent>
-        <BrowserRouter>
-          <Routes>
-            <Route element={<HandleLoginSuccessfully />}>
-              <Route path="SSOAuthentication" element={<SSOAuthentication />}/>
-            </Route>
-
-            <Route element={<DashboardLayout />}>
-              <Route element={<ProtectedRoute />}>
-                <Route path="Dashboard" element={<Dashboard />}/>
-                <Route path="Dashboard/Profile" element={<Profile />}/>
-                <Route path="Dashboard/Notifications" element={<Notifications />} />
-                <Route path="Dashboard/Settings" element={<Settings />} />
-                <Route path="Dashboard/ActiveSubscription" element={<ActiveSubscription />} />
-
-                <Route path="Dashboard/Notepad" element={<Notepad />}/>
-                <Route path="Dashboard/Notepad/TextEditor" element={<TextEditor />}/>
-                <Route path="Dashboard/Calculator" element={<Calculator />}/>
+        <AlertComponent>
+          <BrowserRouter>
+            <Routes>
+              <Route element={<HandleLoginSuccessfully />}>
+                <Route path="SSOAuthentication" element={<SSOAuthentication />}/>
               </Route>
-            </Route>
 
-            <Route element={<DefaultLayout />}>
-              <Route path="" element={<Home />} />
-            </Route>
-            
-            <Route path="SSOProcess" element={<SSOProcess />}/>
-            <Route path="*" element={<PageNotFound />}/>
-          </Routes>
-        </BrowserRouter>
+              <Route element={<DashboardLayout />}>
+                <Route element={<ProtectedRoute />}>
+                  <Route path="Dashboard" element={<Dashboard />}/>
+                  <Route path="Dashboard/Profile" element={<Profile />}/>
+                  <Route path="Dashboard/Notifications" element={<Notifications />} />
+                  <Route path="Dashboard/Settings" element={<Settings />} />
+                  <Route path="Dashboard/ActiveSubscription" element={<ActiveSubscription />} />
+
+                  <Route path="Dashboard/Notepad" element={<Notepad />}/>
+                  <Route path="Dashboard/Notepad/TextEditor" element={<TextEditor />}/>
+                  <Route path="Dashboard/Calculator" element={<Calculator />}/>
+                </Route>
+              </Route>
+
+              <Route element={<DefaultLayout />}>
+                <Route path="" element={<Home />} />
+              </Route>
+              
+              <Route path="SSOProcess" element={<SSOProcess />}/>
+              <Route path="*" element={<PageNotFound />}/>
+            </Routes>
+          </BrowserRouter>
+        </AlertComponent>
       </ThemeProviderComponent>
     </ThemeModeComponent>
 
